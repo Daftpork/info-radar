@@ -1,0 +1,17 @@
+[
+  {
+    "date": "2026-07-06",
+    "tracker": "thinker",
+    "calls": 1,
+    "prompt": 17861,
+    "completion": 1538,
+    "total": 19399,
+    "by_model": {
+      "gpt-5.5": {
+        "calls": 1,
+        "prompt": 17861,
+        "completion": 1538
+      }
+    }
+  }
+]
