@@ -30,6 +30,8 @@ TRACKER_ORDER = ["thinker", "trend", "feature", "deepdive"]
 TRACKER_EMOJI = {"thinker": "🧠", "trend": "📡", "feature": "🚀", "deepdive": "🔍"}
 BUTTONDOWN_USER = os.getenv("BUTTONDOWN_USERNAME", "").strip()
 SITE_TITLE = os.getenv("RADAR_SITE_TITLE", "信息雷达")
+# GitHub 项目页挂在 /<repo>/ 下，内部链接要带这个前缀（用户/组织页或自定义域留空）
+BASE = (os.getenv("RADAR_BASE_PATH") or "").rstrip("/")
 
 _URL_LINE = re.compile(r"^(https?://\S+)$", re.MULTILINE)
 
@@ -62,7 +64,7 @@ def _shell(title: str, body: str) -> str:
     return (f"<!doctype html><html lang=zh><head><meta charset=utf-8>"
             f"<meta name=viewport content='width=device-width,initial-scale=1'>"
             f"<title>{html.escape(title)}</title><style>{CSS}</style></head><body>"
-            f"<p class=mut><a href='/'>← {html.escape(SITE_TITLE)}</a></p>{body}</body></html>")
+            f"<p class=mut><a href='{BASE}/'>← {html.escape(SITE_TITLE)}</a></p>{body}</body></html>")
 
 
 def _sub_form() -> str:
@@ -134,7 +136,7 @@ def _render_index(by_date: dict) -> None:
         links = []
         for t in TRACKER_ORDER:
             if t in trackers:
-                links.append(f"<a class=chip href='/d/{date}-{t}.html'>{TRACKER_EMOJI[t]} {TRACKER[t]}</a>")
+                links.append(f"<a class=chip href='{BASE}/d/{date}-{t}.html'>{TRACKER_EMOJI[t]} {TRACKER[t]}</a>")
         parts.append(f"<div class=card><div class=mut>{date}</div><div class=row>{''.join(links)}</div></div>")
     (DIST / "index.html").write_text(_shell(SITE_TITLE, "".join(parts)), "utf-8")
 

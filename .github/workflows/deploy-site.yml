@@ -33,6 +33,7 @@ jobs:
         env:
           BUTTONDOWN_USERNAME: ${{ vars.BUTTONDOWN_USERNAME }}
           RADAR_SITE_TITLE: ${{ vars.RADAR_SITE_TITLE }}
+          RADAR_BASE_PATH: /${{ github.event.repository.name }}
         run: python site/build.py
       - uses: actions/upload-pages-artifact@v3
         with:
