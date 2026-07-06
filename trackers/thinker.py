@@ -10,7 +10,7 @@ import asyncio
 import logging
 
 import config
-from core import digest, notify, scorer
+from core import digest, llm, notify, scorer
 from core.models import BLOG, PODCAST, VIDEO, dedupe
 from core.prompts import load_prompt
 from core.state import SeenStore, write_output
@@ -59,6 +59,8 @@ async def run(dry_run: bool = False) -> int:
         keep=config.THINKER_KEEP,
         want_tag=True,
         want_bio=True,
+        model=llm.HEAVY_MODEL,
+        timeout_s=120,
     )
     if not sel:
         logger.info("LLM 未选出内容，跳过")

@@ -103,7 +103,8 @@ async def run(dry_run: bool = False) -> int:
         if not fresh:
             sections[name] = []
             continue
-        sel = scorer.select_and_distill(fresh, instruction=trend_instr, keep=keep, want_tag=False)
+        sel = scorer.select_and_distill(fresh, instruction=trend_instr, keep=keep, want_tag=False,
+                                        model=llm.HEAVY_MODEL, timeout_s=120)
         sections[name] = _entries(fresh, sel)
         selected_items.extend(fresh[s["index"]] for s in sel)
 
@@ -112,7 +113,8 @@ async def run(dry_run: bool = False) -> int:
     all_fetched.extend(design)
     dfresh = [it for it in seen.filter_new(design) if it.id not in exclude]
     dsel = scorer.select_and_distill(
-        dfresh, instruction=design_instr, keep=config.TREND_KEEP_DESIGN, want_tag=False
+        dfresh, instruction=design_instr, keep=config.TREND_KEEP_DESIGN, want_tag=False,
+        model=llm.HEAVY_MODEL, timeout_s=120,
     ) if dfresh else []
     sections["🎨 GitHub 设计精选"] = _entries(dfresh, dsel)
     selected_items.extend(dfresh[s["index"]] for s in dsel)

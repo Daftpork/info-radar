@@ -17,26 +17,34 @@ THINKER_BLOGS = [
     {"name": "Ben Thompson", "bio": "Stratechery", "rss": "https://stratechery.com/feed/"},
     {"name": "Gergely Orosz", "bio": "The Pragmatic Engineer", "rss": "https://blog.pragmaticengineer.com/rss/"},
     {"name": "Lenny Rachitsky", "bio": "产品专家", "rss": "https://www.lennysnewsletter.com/feed"},
+    {"name": "Marty Cagan", "bio": "SVPG / 产品", "rss": "https://www.svpg.com/feed/"},
+    {"name": "Teresa Torres", "bio": "Product Talk / 产品发现", "rss": "https://www.producttalk.org/feed/"},
+    {"name": "Paul Graham", "bio": "Y Combinator 联创", "rss": "http://www.aaronsw.com/2002/feeds/pgessays.rss"},
+    {"name": "Derek Sivers", "bio": "CD Baby 创始人 / 作家", "rss": "https://sivers.org/en.atom"},
 ]
 
 # ===========================================================================
 # Thinker —— YouTube 频道（视频 / 视频播客）
 # 用 @handle，fetcher 会自动解析成 channelId（更稳，handle 不易变）。
+# 注意：与下面播客列表不重复，避免同一节目被抓两遍。
 # ===========================================================================
 THINKER_YOUTUBE = [
-    {"name": "Dwarkesh Patel", "bio": "播客主持人", "handle": "@DwarkeshPatel"},
     {"name": "Latent Space", "bio": "AI 工程播客", "handle": "@LatentSpacePod"},
-    {"name": "No Priors", "bio": "AI 播客", "handle": "@NoPriorsPod"},
-    {"name": "Lenny's Podcast", "bio": "产品播客", "handle": "@LennysPodcast"},
 ]
 
 # ===========================================================================
-# Thinker —— 纯音频播客（RSS，走 Whisper 转录）
-# 注意：请核对下列 RSS 是否可用；不确定的先留少量，跑通再扩。
+# Thinker —— 纯音频播客（RSS，走 Whisper 转录）。feedUrl 来自 Apple 播客接口。
 # ===========================================================================
 THINKER_PODCASTS = [
-    {"name": "Latent Space", "bio": "AI 工程播客", "rss": "https://api.substack.com/feed/podcast/1084089.rss"},
-    {"name": "Dwarkesh Podcast", "bio": "播客主持人", "rss": "https://api.substack.com/feed/podcast/69345.rss"},
+    {"name": "No Priors", "bio": "Sarah Guo & Elad Gil / AI 投资", "rss": "https://feeds.megaphone.fm/nopriors"},
+    {"name": "Dwarkesh Podcast", "bio": "Dwarkesh Patel", "rss": "https://apple.dwarkesh-podcast.workers.dev/feed.rss"},
+    {"name": "Lenny's Podcast", "bio": "Lenny Rachitsky / 产品", "rss": "https://anchor.fm/s/5baf5d24/podcast/rss"},
+    {"name": "Behind the Craft", "bio": "Peter Yang / 产品", "rss": "https://anchor.fm/s/f38497cc/podcast/rss"},
+    {"name": "20VC", "bio": "Harry Stebbings / 风投", "rss": "https://rss.libsyn.com/shows/61840/destinations/240976.xml"},
+    {"name": "Y Combinator Podcast", "bio": "YC", "rss": "https://anchor.fm/s/8c1524bc/podcast/rss"},
+    {"name": "The Naval Podcast", "bio": "Naval Ravikant", "rss": "https://rss.libsyn.com/shows/166112/destinations/1103966.xml"},
+    {"name": "How I Built This", "bio": "Guy Raz / 创业故事", "rss": "https://rss.art19.com/how-i-built-this"},
+    {"name": "Forward Thinking Founders", "bio": "创业者访谈", "rss": "https://feeds.transistor.fm/forward-thinking-founder"},
 ]
 
 # 是否把 follow-builders 已转录的 6 档播客也纳入（免费兜底，当自建 Whisper 拉空时有用）

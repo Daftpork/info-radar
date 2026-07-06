@@ -51,6 +51,7 @@ def select_and_distill(
     want_bio: bool = False,
     tag_pool: list[str] | None = None,
     model: str | None = None,
+    timeout_s: float | None = None,
 ) -> list[dict]:
     """从 items 里选出至多 keep 条并为每条写带观点提炼。
 
@@ -90,7 +91,7 @@ def select_and_distill(
 
     max_tokens = min(4000, 400 + keep * 200)
     try:
-        data = llm.chat_json(prompt, system=BASE_VOICE, model=model, max_tokens=max_tokens)
+        data = llm.chat_json(prompt, system=BASE_VOICE, model=model, max_tokens=max_tokens, timeout_s=timeout_s)
     except Exception as e:  # noqa: BLE001
         logger.error("select_and_distill LLM 失败: %s", e)
         return []
