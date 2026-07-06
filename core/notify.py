@@ -61,7 +61,11 @@ def _send_buttondown(subject: str, markdown_body: str) -> bool:
     try:
         r = httpx.post(
             f"{base}/emails",
-            headers={"Authorization": f"Token {key}", "Content-Type": "application/json"},
+            headers={
+                "Authorization": f"Token {key}",
+                "Content-Type": "application/json",
+                "X-Buttondown-Live-Dangerously": "true",  # 确认允许 API 直接发送
+            },
             json={"subject": subject, "body": markdown_body, "status": "about_to_send"},
             timeout=30,
         )
