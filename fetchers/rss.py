@@ -50,8 +50,10 @@ async def fetch_feeds(
     lookback_hours: float,
     ai_filter: bool = False,
     company_field: bool = False,
+    max_per_feed: int = 6,
 ) -> list[Item]:
-    """sources: [{name, bio?, rss, company?}]. 返回近 lookback 小时内的条目。"""
+    """sources: [{name, bio?, rss, company?}]. 返回近 lookback 小时内的条目（每源最多 max_per_feed，
+    防止无日期/陈旧 feed 灌水）。"""
     items: list[Item] = []
     async with httpx.AsyncClient(headers={"User-Agent": _UA}, follow_redirects=True) as client:
         for src in sources:
@@ -66,7 +68,10 @@ async def fetch_feeds(
                 logger.warning("RSS 拉取失败 %s (%s): %s", src.get("name"), url, e)
                 continue
 
+            kept = 0
             for entry in feed.entries:
+                if kept >= max_per_feed:
+                    break
                 published = _entry_time_iso(entry)
                 if published and not within_hours(published, lookback_hours):
                     continue
@@ -91,5 +96,6 @@ async def fetch_feeds(
                     published=published,
                     extra=extra,
                 ))
+                kept += 1
     logger.info("RSS(%s): %d 源 → %d 条", kind, len(sources), len(items))
     return items
