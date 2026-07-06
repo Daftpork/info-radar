@@ -19,7 +19,6 @@ THINKER_BLOGS = [
     {"name": "Lenny Rachitsky", "bio": "产品专家", "rss": "https://www.lennysnewsletter.com/feed"},
     {"name": "Marty Cagan", "bio": "SVPG / 产品", "rss": "https://www.svpg.com/feed/"},
     {"name": "Teresa Torres", "bio": "Product Talk / 产品发现", "rss": "https://www.producttalk.org/feed/"},
-    {"name": "Paul Graham", "bio": "Y Combinator 联创", "rss": "http://www.aaronsw.com/2002/feeds/pgessays.rss"},
     {"name": "Derek Sivers", "bio": "CD Baby 创始人 / 作家", "rss": "https://sivers.org/en.atom"},
 ]
 
@@ -38,7 +37,7 @@ THINKER_YOUTUBE = [
 THINKER_PODCASTS = [
     {"name": "No Priors", "bio": "Sarah Guo & Elad Gil / AI 投资", "rss": "https://feeds.megaphone.fm/nopriors"},
     {"name": "Dwarkesh Podcast", "bio": "Dwarkesh Patel", "rss": "https://apple.dwarkesh-podcast.workers.dev/feed.rss"},
-    {"name": "Lenny's Podcast", "bio": "Lenny Rachitsky / 产品", "rss": "https://anchor.fm/s/5baf5d24/podcast/rss"},
+    {"name": "Lenny's Podcast", "bio": "Lenny Rachitsky / 产品", "rss": "https://api.substack.com/feed/podcast/10845.rss"},
     {"name": "Behind the Craft", "bio": "Peter Yang / 产品", "rss": "https://anchor.fm/s/f38497cc/podcast/rss"},
     {"name": "20VC", "bio": "Harry Stebbings / 风投", "rss": "https://rss.libsyn.com/shows/61840/destinations/240976.xml"},
     {"name": "Y Combinator Podcast", "bio": "YC", "rss": "https://anchor.fm/s/8c1524bc/podcast/rss"},

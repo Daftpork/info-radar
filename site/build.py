@@ -33,7 +33,7 @@ SITE_TITLE = os.getenv("RADAR_SITE_TITLE") or "信息雷达"
 # GitHub 项目页挂在 /<repo>/ 下，内部链接要带这个前缀（用户/组织页或自定义域留空）
 BASE = (os.getenv("RADAR_BASE_PATH") or "").rstrip("/")
 
-_URL_LINE = re.compile(r"^(https?://\S+)$", re.MULTILINE)
+_BARE_URL = re.compile(r"(?<!\()(?<!\])(https?://[^\s<>()\[\]]+)")
 
 CSS = """
 :root{--fg:#1a1a1a;--mut:#666;--line:#eee;--acc:#2b6cb0;--bg:#fff}
@@ -81,7 +81,7 @@ def _sub_form() -> str:
 
 
 def _md_to_html(text: str) -> str:
-    linked = _URL_LINE.sub(r"[\1](\1)", text)
+    linked = _BARE_URL.sub(r"<\1>", text)
     return md.markdown(linked, extensions=["extra", "nl2br", "sane_lists"])
 
 

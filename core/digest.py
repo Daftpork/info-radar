@@ -50,7 +50,7 @@ def render_thinker(date: str, tracked_people: int, entries: list[dict]) -> str:
             lines.append("")
             lines.append(e.get("insight", ""))
             if e.get("detail_slug") and SITE_BASE:
-                lines.append(f"📄 全文+详解：{SITE_BASE}/t/{e['detail_slug']}.html")
+                lines.append(f"📄 [全文+详解]({SITE_BASE}/t/{e['detail_slug']}.html)")
             lines.append("")
     return "\n".join(lines).rstrip() + "\n"
 

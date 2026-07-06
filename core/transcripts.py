@@ -31,6 +31,29 @@ def _slug(date: str, item) -> str:
     return f"{date}-{s}" if s else f"{date}-{item.id}"
 
 
+def polish(text: str) -> str:
+    """给语音转录稿加标点 + 分段（严格不改字），让「全文」能读。分块处理保证忠实。"""
+    text = (text or "").strip()
+    if len(text) < 120:
+        return text
+    step = 4000
+    chunks = [text[i:i + step] for i in range(0, min(len(text), 20000), step)]
+    out = []
+    for ch in chunks:
+        try:
+            polished = llm.chat(
+                "下面是一段语音转文字稿，缺标点、没分段，很难读。你只做两件事："
+                "①补上正确的标点符号 ②按语义分段（段与段之间空一行）。"
+                "严格保留原文每一个字，不改写、不删减、不总结、不翻译。直接输出处理后的文字：\n\n" + ch,
+                model=llm.DEFAULT_MODEL, max_tokens=3400, timeout_s=120,
+            )
+            out.append(polished.strip())
+        except Exception as e:  # noqa: BLE001
+            logger.warning("转录润色失败(保留原样): %s", e)
+            out.append(ch)
+    return "\n\n".join(out)
+
+
 def archive(item, date: str, *, dry_run: bool = False) -> dict | None:
     """为一个带转录的播客/视频 item 生成中文详解 + 存档，返回记录（含 slug）。"""
     if item.kind not in (PODCAST, VIDEO):
@@ -65,7 +88,7 @@ def archive(item, date: str, *, dry_run: bool = False) -> dict | None:
         "url": item.url,
         "orig_lang": "zh" if is_zh else "en",
         "detail_zh": detail_zh,
-        "transcript": transcript,
+        "transcript": polish(transcript),
     }
     state.save_transcript(slug, record, dry_run=dry_run)
     logger.info("转录归档: %s (%s)", slug, "中文" if is_zh else "英文")
