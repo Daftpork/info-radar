@@ -90,7 +90,7 @@ async def run(dry_run: bool = False) -> int:
     tracked = len({e["author"] for e in entries if e["author"]})
     md = digest.render_thinker(date, tracked_people=tracked, entries=entries)
 
-    notify.send_email(f"🧠 Thinker Daily · {date}", md, dry_run=dry_run)
+    notify.send_email(f"🧠 观点 · {date}", md, dry_run=dry_run)
     write_output(f"{date}-thinker.md", md, dry_run=dry_run)
 
     # 已抓到的全部标记为已见（未入选的也标，避免以后反复冒出来）

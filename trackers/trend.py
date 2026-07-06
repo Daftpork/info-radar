@@ -129,7 +129,7 @@ async def run(dry_run: bool = False) -> int:
     summary = _summary_line(sections, total)
     md = digest.render_trend(date, summary, sections)
 
-    notify.send_email(f"📡 Trend Tracker · {date}", md, dry_run=dry_run)
+    notify.send_email(f"📡 趋势 · {date}", md, dry_run=dry_run)
     write_output(f"{date}-trend.md", md, dry_run=dry_run)
     append_trend_history(date, selected_items, dry_run=dry_run)
 

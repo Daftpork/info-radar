@@ -21,7 +21,7 @@ SOURCE_TYPE_LABEL = {
 def render_thinker(date: str, tracked_people: int, entries: list[dict]) -> str:
     """entries: [{tag, author, author_bio, source_type, title, url, insight}]"""
     lines = [
-        f"🧠 Thinker Tracker Daily · {date}",
+        f"🧠 观点 · {date}",
         f"追踪 {tracked_people} 人 · {len(entries)} 条动态",
         "",
     ]
@@ -57,7 +57,7 @@ def render_trend(date: str, summary: str, sections: "OrderedDict[str, list[dict]
     label 如 'owner/repo'；meta 如 '★ 1,703' 或 '⬆ New'。空区块跳过。"""
     total = sum(len(v) for v in sections.values())
     lines = [
-        f"📡 Trend Tracker · {date}",
+        f"📡 趋势 · {date}",
         summary or f"今日精选共 {total} 条。",
         "",
     ]
@@ -81,7 +81,7 @@ def render_trend(date: str, summary: str, sections: "OrderedDict[str, list[dict]
 def render_feature(date: str, entries: list[dict]) -> str:
     """entries: [{company, title, url, insight}]，按 company 分组。"""
     lines = [
-        f"🚀 Feature Tracker Weekly · {date}",
+        f"🚀 御三家动态 · {date}",
         f"本周御三家产品更新共 {len(entries)} 条。",
         "",
     ]
@@ -103,4 +103,4 @@ def render_feature(date: str, entries: list[dict]) -> str:
 # 行业深潜（正文由 LLM 直接产出长文 markdown，这里只包个头）
 # ---------------------------------------------------------------------------
 def render_deepdive(date: str, topic: str, body_markdown: str) -> str:
-    return f"🔍 行业深潜 · {date} — {topic}\n\n{body_markdown.strip()}\n"
+    return f"🔍 深读 · {date} — {topic}\n\n{body_markdown.strip()}\n"

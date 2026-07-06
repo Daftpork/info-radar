@@ -110,7 +110,7 @@ async def run(dry_run: bool = False) -> int:
     )
     md = digest.render_deepdive(date, topic, body)
 
-    notify.send_email(f"🔍 行业深潜 · {date} — {topic}", md, dry_run=dry_run)
+    notify.send_email(f"🔍 深读 · {date} — {topic}", md, dry_run=dry_run)
     write_output(f"{date}-deepdive.md", md, dry_run=dry_run)
 
     if not dry_run:
