@@ -29,7 +29,7 @@ TRACKER = {"thinker": "观点", "trend": "趋势", "feature": "御三家动态",
 TRACKER_ORDER = ["thinker", "trend", "feature", "deepdive"]
 TRACKER_EMOJI = {"thinker": "🧠", "trend": "📡", "feature": "🚀", "deepdive": "🔍"}
 BUTTONDOWN_USER = os.getenv("BUTTONDOWN_USERNAME", "").strip()
-SITE_TITLE = os.getenv("RADAR_SITE_TITLE", "信息雷达")
+SITE_TITLE = os.getenv("RADAR_SITE_TITLE") or "信息雷达"
 # GitHub 项目页挂在 /<repo>/ 下，内部链接要带这个前缀（用户/组织页或自定义域留空）
 BASE = (os.getenv("RADAR_BASE_PATH") or "").rstrip("/")
 
