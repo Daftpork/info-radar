@@ -73,7 +73,7 @@ TREND_PH_TOPICS = ["artificial-intelligence", "developer-tools", "design-tools"]
 # OpenAI/Anthropic 无干净 RSS，用 HTML 索引解析；Google 有 RSS。
 # ===========================================================================
 FEATURE_SOURCES = [
-    {"company": "OpenAI", "type": "html", "url": "https://openai.com/news/"},
+    {"company": "OpenAI", "type": "rss", "url": "https://openai.com/news/rss.xml"},
     {"company": "Anthropic", "type": "html", "url": "https://www.anthropic.com/news"},
     {"company": "Google DeepMind", "type": "rss", "url": "https://blog.google/technology/google-deepmind/rss/"},
     {"company": "Google AI", "type": "rss", "url": "https://blog.google/technology/ai/rss/"},
