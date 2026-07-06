@@ -1,0 +1,90 @@
+"""数据源名单配置 —— 随手可改。所有列表都是「起步集」，按需增删。
+
+Thinker 四种源：X（follow-builders feed，名单在上游）+ 博客RSS + YouTube + 播客。
+Trend / Feature 的配置在文件下半部。
+"""
+
+# ===========================================================================
+# Thinker —— 深度长文（博客 / Substack 的 RSS）
+# 这些是我确认可用的 AI 思想者 feed，按需增删。
+# ===========================================================================
+THINKER_BLOGS = [
+    {"name": "Simon Willison", "bio": "独立开发者", "rss": "https://simonwillison.net/atom/everything/"},
+    {"name": "Ethan Mollick", "bio": "沃顿教授", "rss": "https://www.oneusefulthing.org/feed"},
+    {"name": "Azeem Azhar", "bio": "Exponential View 创始人", "rss": "https://www.exponentialview.co/feed"},
+    {"name": "Nathan Lambert", "bio": "Interconnects / AI2", "rss": "https://www.interconnects.ai/feed"},
+    {"name": "Jack Clark", "bio": "Anthropic 联创 / Import AI", "rss": "https://jack-clark.net/feed/"},
+    {"name": "Ben Thompson", "bio": "Stratechery", "rss": "https://stratechery.com/feed/"},
+    {"name": "Gergely Orosz", "bio": "The Pragmatic Engineer", "rss": "https://blog.pragmaticengineer.com/rss/"},
+    {"name": "Lenny Rachitsky", "bio": "产品专家", "rss": "https://www.lennysnewsletter.com/feed"},
+]
+
+# ===========================================================================
+# Thinker —— YouTube 频道（视频 / 视频播客）
+# 用 @handle，fetcher 会自动解析成 channelId（更稳，handle 不易变）。
+# ===========================================================================
+THINKER_YOUTUBE = [
+    {"name": "Dwarkesh Patel", "bio": "播客主持人", "handle": "@DwarkeshPatel"},
+    {"name": "Latent Space", "bio": "AI 工程播客", "handle": "@LatentSpacePod"},
+    {"name": "No Priors", "bio": "AI 播客", "handle": "@NoPriorsPod"},
+    {"name": "Lenny's Podcast", "bio": "产品播客", "handle": "@LennysPodcast"},
+]
+
+# ===========================================================================
+# Thinker —— 纯音频播客（RSS，走 Whisper 转录）
+# 注意：请核对下列 RSS 是否可用；不确定的先留少量，跑通再扩。
+# ===========================================================================
+THINKER_PODCASTS = [
+    {"name": "Latent Space", "bio": "AI 工程播客", "rss": "https://api.substack.com/feed/podcast/1084089.rss"},
+    {"name": "Dwarkesh Podcast", "bio": "播客主持人", "rss": "https://api.substack.com/feed/podcast/69345.rss"},
+]
+
+# 是否把 follow-builders 已转录的 6 档播客也纳入（免费兜底，当自建 Whisper 拉空时有用）
+THINKER_USE_FOLLOWBUILDERS_PODCASTS = True
+
+# Thinker 单次日报最多展示多少条
+THINKER_KEEP = 12
+# 各源回看窗口（小时）
+THINKER_LOOKBACK_HOURS = 30
+
+
+# ===========================================================================
+# Trend —— 通用热门 + GitHub 设计精选（每周一三五）
+# ===========================================================================
+# 通用半区：各源各取多少送进打分
+TREND_GITHUB_TOPICS_GENERAL = None      # None = 用 GitHub Trending（AI 相关过滤）
+TREND_KEEP_GENERAL = 12                  # 通用半区最终保留条数
+TREND_KEEP_DESIGN = 5                    # 设计半区最终保留条数
+TREND_LOOKBACK_HOURS = 72
+
+# 设计半区：GitHub 上按这些 topic 搜设计类仓库
+TREND_DESIGN_TOPICS = [
+    "design-system", "design-systems", "ui", "ui-components", "design-tools",
+    "figma", "figma-plugin", "icons", "animation", "css", "tailwindcss",
+    "design-engineering", "web-design", "shaders",
+]
+# arXiv 抓取的分类
+TREND_ARXIV_CATEGORIES = ["cs.AI", "cs.CL", "cs.LG", "cs.HC", "cs.RO"]
+# Product Hunt 抓取的 topic
+TREND_PH_TOPICS = ["artificial-intelligence", "developer-tools", "design-tools"]
+
+
+# ===========================================================================
+# Feature —— 御三家产品更新（每周五）
+# OpenAI/Anthropic 无干净 RSS，用 HTML 索引解析；Google 有 RSS。
+# ===========================================================================
+FEATURE_SOURCES = [
+    {"company": "OpenAI", "type": "html", "url": "https://openai.com/news/"},
+    {"company": "Anthropic", "type": "html", "url": "https://www.anthropic.com/news"},
+    {"company": "Google DeepMind", "type": "rss", "url": "https://blog.google/technology/google-deepmind/rss/"},
+    {"company": "Google AI", "type": "rss", "url": "https://blog.google/technology/ai/rss/"},
+]
+FEATURE_LOOKBACK_HOURS = 24 * 8  # 一周多一点，容忍偶尔漏跑
+FEATURE_KEEP = 12
+
+
+# ===========================================================================
+# 行业深潜 —— 每周挑一个最热主题深挖
+# ===========================================================================
+DEEPDIVE_ENABLED = True
+DEEPDIVE_EXA_QUERIES_PER_TOPIC = 6

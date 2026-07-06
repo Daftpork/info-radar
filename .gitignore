@@ -1,0 +1,19 @@
+# --- Python ---
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+
+# --- 密钥（绝不提交）---
+.env
+*.local.json
+
+# --- 临时音频/转录缓存 ---
+tmp/
+*.mp3
+*.m4a
+*.wav
+
+# --- 注意：state/ 和 output/ 是故意提交的（CI 跨运行持久化）---

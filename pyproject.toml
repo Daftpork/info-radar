@@ -1,0 +1,20 @@
+[project]
+name = "info-radar"
+version = "0.1.0"
+description = "个人 AI 信息雷达 — Thinker / Feature / Trend / 行业深潜，跑在 GitHub Actions，邮件送达"
+requires-python = ">=3.11"
+dependencies = [
+    "httpx>=0.28",
+    "feedparser>=6.0",
+    "python-dotenv>=1.0",
+    "markdown>=3.6",
+    "youtube-transcript-api>=0.6",   # Thinker 视频/播客字幕
+    "anthropic>=0.40",   # 仅 fallback 兜底用，可无 key
+]
+
+[tool.setuptools]
+packages = ["core", "fetchers", "trackers"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
