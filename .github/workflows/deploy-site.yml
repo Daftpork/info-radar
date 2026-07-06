@@ -1,12 +1,9 @@
 name: Deploy Site
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - "output/**"
-      - "site/**"
-      - "config.py"
+  workflow_run:
+    workflows: ["Thinker Tracker", "Trend Tracker", "Feature Tracker", "DeepDive"]
+    types: [completed]
   workflow_dispatch:
 
 # 需在 Settings → Pages → Source 选 "GitHub Actions"（私有仓库需 Pro；或改用 Vercel）
