@@ -57,11 +57,10 @@ TREND_KEEP_GENERAL = 12                  # 通用半区最终保留条数
 TREND_KEEP_DESIGN = 5                    # 设计半区最终保留条数
 TREND_LOOKBACK_HOURS = 72
 
-# 设计半区：GitHub 上按这些 topic 搜设计类仓库
+# 设计半区：GitHub 上按这些 topic 搜设计类仓库（每个 topic 一次请求，故精简数量）
 TREND_DESIGN_TOPICS = [
-    "design-system", "design-systems", "ui", "ui-components", "design-tools",
-    "figma", "figma-plugin", "icons", "animation", "css", "tailwindcss",
-    "design-engineering", "web-design", "shaders",
+    "design-system", "design-tools", "ui", "figma",
+    "icons", "animation", "tailwindcss", "shaders",
 ]
 # arXiv 抓取的分类
 TREND_ARXIV_CATEGORIES = ["cs.AI", "cs.CL", "cs.LG", "cs.HC", "cs.RO"]
