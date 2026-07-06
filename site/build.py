@@ -60,11 +60,13 @@ padding:14px;border-radius:8px;font-size:14px;line-height:1.8}
 """
 
 
-def _shell(title: str, body: str) -> str:
+def _shell(title: str, body: str, home: bool = False) -> str:
+    # 首页不显示返回链接（点它等于刷新自己）；子页显示「← 回首页」
+    back = "" if home else f"<p class=mut><a href='{BASE}/'>← 回首页</a></p>"
     return (f"<!doctype html><html lang=zh><head><meta charset=utf-8>"
             f"<meta name=viewport content='width=device-width,initial-scale=1'>"
             f"<title>{html.escape(title)}</title><style>{CSS}</style></head><body>"
-            f"<p class=mut><a href='{BASE}/'>← {html.escape(SITE_TITLE)}</a></p>{body}</body></html>")
+            f"{back}{body}</body></html>")
 
 
 def _sub_form() -> str:
@@ -138,7 +140,7 @@ def _render_index(by_date: dict) -> None:
             if t in trackers:
                 links.append(f"<a class=chip href='{BASE}/d/{date}-{t}.html'>{TRACKER_EMOJI[t]} {TRACKER[t]}</a>")
         parts.append(f"<div class=card><div class=mut>{date}</div><div class=row>{''.join(links)}</div></div>")
-    (DIST / "index.html").write_text(_shell(SITE_TITLE, "".join(parts)), "utf-8")
+    (DIST / "index.html").write_text(_shell(SITE_TITLE, "".join(parts), home=True), "utf-8")
 
 
 def build() -> None:
