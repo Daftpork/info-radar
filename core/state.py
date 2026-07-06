@@ -26,6 +26,31 @@ def write_output(filename: str, content: str, dry_run: bool = False) -> None:
     (OUTPUT_DIR / filename).write_text(content, "utf-8")
 
 
+TRANSCRIPTS_DIR = OUTPUT_DIR / "transcripts"
+
+
+def save_transcript(slug: str, record: dict, dry_run: bool = False) -> None:
+    """存一条转录归档（中文详解 + 原文）到 output/transcripts/<slug>.json。"""
+    if dry_run:
+        return
+    TRANSCRIPTS_DIR.mkdir(parents=True, exist_ok=True)
+    (TRANSCRIPTS_DIR / f"{slug}.json").write_text(
+        json.dumps(record, ensure_ascii=False, indent=2), "utf-8"
+    )
+
+
+def load_all_transcripts() -> list[dict]:
+    if not TRANSCRIPTS_DIR.exists():
+        return []
+    out = []
+    for p in sorted(TRANSCRIPTS_DIR.glob("*.json"), reverse=True):
+        try:
+            out.append(json.loads(p.read_text("utf-8")))
+        except Exception:  # noqa: BLE001
+            continue
+    return out
+
+
 def _path(name: str) -> Path:
     return STATE_DIR / name
 

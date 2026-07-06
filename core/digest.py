@@ -6,7 +6,11 @@
 
 from __future__ import annotations
 
+import os
 from collections import OrderedDict
+
+# 站点基址（部署后设为 secret）；设了才在 digest 里放「全文+详解」链接
+SITE_BASE = (os.getenv("RADAR_SITE_BASE") or "").rstrip("/")
 
 # 来源类型的中文label
 SOURCE_TYPE_LABEL = {
@@ -45,6 +49,8 @@ def render_thinker(date: str, tracked_people: int, entries: list[dict]) -> str:
                 lines.append(f"{e['url']}")
             lines.append("")
             lines.append(e.get("insight", ""))
+            if e.get("detail_slug") and SITE_BASE:
+                lines.append(f"📄 全文+详解：{SITE_BASE}/t/{e['detail_slug']}.html")
             lines.append("")
     return "\n".join(lines).rstrip() + "\n"
 

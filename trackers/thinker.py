@@ -10,7 +10,7 @@ import asyncio
 import logging
 
 import config
-from core import digest, llm, notify, scorer
+from core import digest, llm, notify, scorer, transcripts
 from core.models import BLOG, PODCAST, VIDEO, dedupe
 from core.prompts import load_prompt
 from core.state import SeenStore, write_output
@@ -77,7 +77,7 @@ async def run(dry_run: bool = False) -> int:
             bio = it.author_bio
         else:
             bio = s.get("author_bio") or it.author_bio
-        entries.append({
+        entry = {
             "tag": s.get("tag") or "📌 其他",
             "author": it.author,
             "author_bio": bio,
@@ -85,7 +85,13 @@ async def run(dry_run: bool = False) -> int:
             "title": it.title,
             "url": it.url,
             "insight": s["insight"],
-        })
+        }
+        # 播客/视频有转录 → 生成中文详解归档，digest 里带「详解+全文」链接
+        if it.kind in (PODCAST, VIDEO):
+            rec = transcripts.archive(it, date, dry_run=dry_run)
+            if rec:
+                entry["detail_slug"] = rec["slug"]
+        entries.append(entry)
 
     tracked = len({e["author"] for e in entries if e["author"]})
     md = digest.render_thinker(date, tracked_people=tracked, entries=entries)

@@ -17,3 +17,6 @@ tmp/
 *.wav
 
 # --- 注意：state/ 和 output/ 是故意提交的（CI 跨运行持久化）---
+
+# 站点构建产物
+site/dist/
