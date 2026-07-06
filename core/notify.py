@@ -53,13 +53,39 @@ def _markdown_to_html(body: str) -> str:
     return f"<html><head>{_HTML_STYLE}</head><body>{html}</body></html>"
 
 
+def _send_buttondown(subject: str, markdown_body: str) -> bool:
+    """发给 Buttondown 订阅者（并进公开归档）。"""
+    import httpx
+    key = os.getenv("BUTTONDOWN_API_KEY", "").strip()
+    base = (os.getenv("BUTTONDOWN_API_BASE") or "https://api.buttondown.email/v1").rstrip("/")
+    try:
+        r = httpx.post(
+            f"{base}/emails",
+            headers={"Authorization": f"Token {key}", "Content-Type": "application/json"},
+            json={"subject": subject, "body": markdown_body, "status": "about_to_send"},
+            timeout=30,
+        )
+        r.raise_for_status()
+        logger.info("Buttondown 已发送 → 订阅者: %s", subject)
+        return True
+    except Exception as e:  # noqa: BLE001
+        logger.error("Buttondown 发送失败: %s", e)
+        return False
+
+
 def send_email(subject: str, markdown_body: str, *, dry_run: bool = False) -> bool:
-    """发一封 markdown 正文的邮件。dry_run 或未配置时只打印，返回 False。"""
+    """发一封 markdown 正文的日报。
+    优先级：dry_run 打印 → 配了 Buttondown 就发订阅者 → 否则 Gmail SMTP 发给自己。
+    """
     if dry_run:
         print(f"\n===== [DRY-RUN] {subject} =====\n")
         print(markdown_body)
         print("\n===== end =====\n")
         return True
+
+    # 配了 Buttondown 就走它（公开订阅模式）
+    if os.getenv("BUTTONDOWN_API_KEY", "").strip():
+        return _send_buttondown(subject, markdown_body)
 
     config = _get_email_config()
     if not config:
