@@ -106,3 +106,14 @@ def append_trend_history(date: str, items: list, keep_days: int = 21, dry_run: b
 
 def load_trend_history() -> list:
     return load_json("trend_history.json", [])
+
+
+# ---------------------------------------------------------------------------
+# Token 用量记录（每次运行追加一条，供成本观察）
+# ---------------------------------------------------------------------------
+def record_usage(tracker: str, date: str, usage: dict, dry_run: bool = False) -> None:
+    if dry_run or not usage or not usage.get("calls"):
+        return
+    data = load_json("token_usage.json", [])
+    data.append({"date": date, "tracker": tracker, **usage})
+    save_json("token_usage.json", data[-1000:])

@@ -45,6 +45,33 @@ class LLMError(Exception):
 
 
 # ---------------------------------------------------------------------------
+# Token 用量统计（进程级累加；tracker 跑完写进 state/token_usage.json）
+# ---------------------------------------------------------------------------
+_usage: dict = {}
+
+
+def _record(model: str, prompt: int, completion: int) -> None:
+    m = _usage.setdefault(model, {"calls": 0, "prompt": 0, "completion": 0})
+    m["calls"] += 1
+    m["prompt"] += int(prompt or 0)
+    m["completion"] += int(completion or 0)
+
+
+def usage_summary() -> dict:
+    tp = sum(m["prompt"] for m in _usage.values())
+    tc = sum(m["completion"] for m in _usage.values())
+    return {
+        "calls": sum(m["calls"] for m in _usage.values()),
+        "prompt": tp, "completion": tc, "total": tp + tc,
+        "by_model": {k: dict(v) for k, v in _usage.items()},
+    }
+
+
+def reset_usage() -> None:
+    _usage.clear()
+
+
+# ---------------------------------------------------------------------------
 # OpenAI 兼容 provider（yuyu / liaobots）— 裸 httpx，绕 content-type bug
 # ---------------------------------------------------------------------------
 def _openai_compatible_call(
@@ -72,6 +99,8 @@ def _openai_compatible_call(
     if not isinstance(choices, list) or not choices:
         raise LLMError(f"bad response shape: {resp.text[:300]}")
     content = choices[0].get("message", {}).get("content") or ""
+    usage = data.get("usage") or {}
+    _record(model, usage.get("prompt_tokens", 0), usage.get("completion_tokens", 0))
     return _strip_reasoning(content)
 
 
@@ -91,6 +120,9 @@ def _anthropic_call(
     if system:
         kwargs["system"] = system
     resp = client.messages.create(**kwargs)
+    u = getattr(resp, "usage", None)
+    if u:
+        _record(ANTHROPIC_MODEL, getattr(u, "input_tokens", 0), getattr(u, "output_tokens", 0))
     return "".join(
         block.text for block in resp.content if getattr(block, "type", None) == "text"
     )

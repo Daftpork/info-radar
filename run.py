@@ -40,7 +40,18 @@ def main() -> int:
         print(f"[run] tracker '{args.tracker}' 尚未实现: {e}", file=sys.stderr)
         return 2
 
-    return asyncio.run(module.run(dry_run=args.dry_run)) or 0
+    code = asyncio.run(module.run(dry_run=args.dry_run)) or 0
+
+    # token 用量：打印 + 落库（dry-run 不落库）
+    from core import llm, state
+    from core.util import today_str
+    usage = llm.usage_summary()
+    logging.getLogger("run").info(
+        "token 用量 | 调用 %d 次, 输入 %d, 输出 %d, 合计 %d | 按模型: %s",
+        usage["calls"], usage["prompt"], usage["completion"], usage["total"], usage["by_model"],
+    )
+    state.record_usage(args.tracker, today_str(), usage, dry_run=args.dry_run)
+    return code
 
 
 if __name__ == "__main__":
