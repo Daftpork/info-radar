@@ -45,6 +45,11 @@ THINKER_PODCASTS = [
     {"name": "The Naval Podcast", "bio": "Naval Ravikant", "rss": "https://rss.libsyn.com/shows/166112/destinations/1103966.xml"},
     {"name": "How I Built This", "bio": "Guy Raz / 创业故事", "rss": "https://rss.art19.com/how-i-built-this"},
     {"name": "Forward Thinking Founders", "bio": "创业者访谈", "rss": "https://feeds.transistor.fm/forward-thinking-founder"},
+    # 中文播客（feed.xyzfm.space 即小宇宙的 RSS）
+    {"name": "晚点聊 LateTalk", "bio": "晚点团队 / 科技访谈", "rss": "https://feeds.fireside.fm/latetalk/rss"},
+    {"name": "42章经", "bio": "曲凯 / 科技投资", "rss": "https://feed.xyzfm.space/evgg6xle9rdc"},
+    {"name": "张小珺商业访谈录", "bio": "张小珺 / 商业深访", "rss": "https://feed.xyzfm.space/dk4yh3pkpjp3"},
+    {"name": "十字路口Crossing", "bio": "AI 创业播客", "rss": "https://feed.xyzfm.space/68fyjknth9hj"},
 ]
 
 # 是否把 follow-builders 已转录的 6 档播客也纳入（免费兜底，当自建 Whisper 拉空时有用）
