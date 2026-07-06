@@ -49,8 +49,9 @@ cp .env.example .env   # 填入密钥
 - `EMAIL_TO` — 收件邮箱（QQ 也行，Gmail→QQ 送达率好）
 
 **建议填**
-- `PRODUCTHUNT_TOKEN` — Product Hunt 官方 developer token（api.producthunt.com/v2/oauth，免费）
-- `WHISPER_API_KEY` + `WHISPER_BASE_URL` + `WHISPER_MODEL` — 播客转录（OpenAI `whisper-1` 或更便宜的 Groq `whisper-large-v3-turbo`）
+- `WHISPER_API_KEY` + `WHISPER_BASE_URL` + `WHISPER_MODEL` — 播客转录（推荐 Groq `whisper-large-v3-turbo`，有免费额度；或 OpenAI `whisper-1`）
+
+> Product Hunt 走公开 RSS，**无需 token**（官方 API 已限制申请）。
 
 **可选**
 - `ANTHROPIC_API_KEY` — LLM 兜底
