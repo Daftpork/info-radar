@@ -43,8 +43,8 @@ def _get_email_config() -> dict | None:
         "to": email_to,
         "from": email_from,
         "password": email_password,
-        "host": os.getenv("EMAIL_SMTP_HOST", "smtp.gmail.com").strip(),
-        "port": int(os.getenv("EMAIL_SMTP_PORT", "587")),
+        "host": os.getenv("EMAIL_SMTP_HOST") or "smtp.gmail.com",
+        "port": int(os.getenv("EMAIL_SMTP_PORT") or "587"),
     }
 
 

@@ -17,7 +17,7 @@ from core.util import within_hours
 logger = logging.getLogger(__name__)
 
 HF_DAILY = "https://huggingface.co/api/daily_papers"
-ARXIV_API = "http://export.arxiv.org/api/query"
+ARXIV_API = "https://export.arxiv.org/api/query"
 
 
 async def _hf_daily(client: httpx.AsyncClient, limit: int) -> list[Item]:
@@ -81,7 +81,7 @@ async def _arxiv_recent(client: httpx.AsyncClient, categories: list[str], lookba
 
 
 async def fetch_papers(categories: list[str], lookback_hours: float, limit: int = 30) -> list[Item]:
-    async with httpx.AsyncClient(headers={"User-Agent": "info-radar/0.1"}) as client:
+    async with httpx.AsyncClient(headers={"User-Agent": "info-radar/0.1"}, follow_redirects=True) as client:
         items = await _hf_daily(client, limit)
         if not items:
             items = await _arxiv_recent(client, categories, lookback_hours)

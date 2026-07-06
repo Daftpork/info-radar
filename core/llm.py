@@ -24,13 +24,13 @@ load_dotenv()
 logger = logging.getLogger(__name__)
 
 # --- 模型档位（网关命名，可用 env 覆盖）---
-DEFAULT_MODEL = os.getenv("RADAR_MODEL", "gpt-5.4-mini")
-HEAVY_MODEL = os.getenv("RADAR_HEAVY_MODEL", "gpt-5.5")
+DEFAULT_MODEL = os.getenv("RADAR_MODEL") or "gpt-5.4-mini"
+HEAVY_MODEL = os.getenv("RADAR_HEAVY_MODEL") or "gpt-5.5"
 
 # --- provider 端点 ---
-YUYU_BASE_URL = os.getenv("YUYU_BASE_URL", "https://app.yylx.io/v1")
-LIAOBOTS_BASE_URL = os.getenv("LIAOBOTS_BASE_URL", "https://ai.liaobots.work/v1")
-ANTHROPIC_MODEL = os.getenv("ANTHROPIC_MODEL", "claude-sonnet-4-5-20250929")
+YUYU_BASE_URL = os.getenv("YUYU_BASE_URL") or "https://app.yylx.io/v1"
+LIAOBOTS_BASE_URL = os.getenv("LIAOBOTS_BASE_URL") or "https://ai.liaobots.work/v1"
+ANTHROPIC_MODEL = os.getenv("ANTHROPIC_MODEL") or "claude-sonnet-4-5-20250929"
 
 # --- 每 provider 独立超时（秒）---
 _YUYU_TIMEOUT = float(os.getenv("YUYU_TIMEOUT_MS", "40000")) / 1000
@@ -119,10 +119,12 @@ def chat(
     temperature: float = 0.7,
     providers: list[str] | None = None,
     fallback_text: str | None = None,
+    timeout_s: float | None = None,
 ) -> str:
     """按 yuyu → liaobots → anthropic 顺序调用，第一个成功即返回。
 
     prompt 或 messages 二选一（messages 用 OpenAI 格式 [{"role","content"}]）。
+    timeout_s：覆盖每个 provider 的默认超时（长文生成传大值，如 180）。
     全失败：若给了 fallback_text 则返回它，否则抛 LLMError。
     """
     if messages is None:
@@ -131,28 +133,30 @@ def chat(
         messages = [{"role": "user", "content": prompt}]
     model = model or DEFAULT_MODEL
     order = providers or DEFAULT_ORDER
+    defaults = {"yuyu": _YUYU_TIMEOUT, "liaobots": _LIAOBOTS_TIMEOUT, "anthropic": _ANTHROPIC_TIMEOUT}
     errors: list[str] = []
 
     for p in order:
+        tmo = timeout_s or defaults.get(p, 40)
         try:
             if p == "yuyu":
                 key = os.getenv("YUYU_API_KEY", "").strip()
                 if not key:
                     raise LLMError("YUYU_API_KEY 未设置")
                 return _openai_compatible_call(
-                    YUYU_BASE_URL, key, model, messages, system, max_tokens, temperature, _YUYU_TIMEOUT
+                    YUYU_BASE_URL, key, model, messages, system, max_tokens, temperature, tmo
                 )
             if p == "liaobots":
                 key = os.getenv("LIAOBOTS_API_KEY", "").strip()
                 if not key:
                     raise LLMError("LIAOBOTS_API_KEY 未设置")
                 return _openai_compatible_call(
-                    LIAOBOTS_BASE_URL, key, model, messages, system, max_tokens, temperature, _LIAOBOTS_TIMEOUT
+                    LIAOBOTS_BASE_URL, key, model, messages, system, max_tokens, temperature, tmo
                 )
             if p == "anthropic":
                 if not os.getenv("ANTHROPIC_API_KEY", "").strip():
                     raise LLMError("ANTHROPIC_API_KEY 未设置")
-                return _anthropic_call(messages, system, max_tokens, _ANTHROPIC_TIMEOUT)
+                return _anthropic_call(messages, system, max_tokens, tmo)
             raise LLMError(f"未知 provider: {p}")
         except Exception as e:  # noqa: BLE001 — 故意吞掉转下一个 provider
             logger.warning("[llm] provider %s 失败: %s", p, e)

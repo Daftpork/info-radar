@@ -24,8 +24,8 @@ from core.util import within_hours
 
 logger = logging.getLogger(__name__)
 
-WHISPER_BASE = os.getenv("WHISPER_BASE_URL", "https://api.openai.com/v1").rstrip("/")
-WHISPER_MODEL = os.getenv("WHISPER_MODEL", "whisper-1")
+WHISPER_BASE = (os.getenv("WHISPER_BASE_URL") or "https://api.openai.com/v1").rstrip("/")
+WHISPER_MODEL = os.getenv("WHISPER_MODEL") or "whisper-1"
 _UA = "Mozilla/5.0 (compatible; info-radar/0.1)"
 _TAG_RE = re.compile(r"<[^>]+>")
 _TRANSCRIPT_MAX = 12000

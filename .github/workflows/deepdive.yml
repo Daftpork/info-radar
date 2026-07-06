@@ -1,0 +1,46 @@
+name: DeepDive
+
+on:
+  schedule:
+    - cron: "5 1 * * 0"   # 每周日 09:05 北京（UTC 01:05）
+  workflow_dispatch:
+
+concurrency:
+  group: info-radar-commit
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install deps
+        run: pip install -e .
+      - name: Run deepdive
+        env:
+          YUYU_API_KEY: ${{ secrets.YUYU_API_KEY }}
+          YUYU_BASE_URL: ${{ secrets.YUYU_BASE_URL }}
+          LIAOBOTS_API_KEY: ${{ secrets.LIAOBOTS_API_KEY }}
+          LIAOBOTS_BASE_URL: ${{ secrets.LIAOBOTS_BASE_URL }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          ANTHROPIC_BASE_URL: ${{ secrets.ANTHROPIC_BASE_URL }}
+          EXA_API_KEY: ${{ secrets.EXA_API_KEY }}
+          EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
+          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python run.py deepdive
+      - name: Commit state & digest
+        run: |
+          git config user.name "info-radar-bot"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add state/ output/ || true
+          git commit -m "chore(deepdive): update digest [skip ci]" || { echo "no changes"; exit 0; }
+          git pull --rebase --autostash origin ${{ github.ref_name }} || true
+          git push
