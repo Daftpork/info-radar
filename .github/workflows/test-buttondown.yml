@@ -1,0 +1,19 @@
+name: Test Buttondown
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -e .
+      - name: Send test email via Buttondown
+        env:
+          BUTTONDOWN_API_KEY: ${{ secrets.BUTTONDOWN_API_KEY }}
+        run: |
+          python -c "import logging; logging.basicConfig(level=logging.INFO); from core.notify import _send_buttondown; ok=_send_buttondown('[测试] info-radar 订阅联通', '这是一封 Buttondown 测试邮件。如果你收到了，说明订阅链路打通。'); print('RESULT:', 'SENT' if ok else 'FAILED')"

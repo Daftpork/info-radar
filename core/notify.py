@@ -57,7 +57,7 @@ def _send_buttondown(subject: str, markdown_body: str) -> bool:
     """发给 Buttondown 订阅者（并进公开归档）。"""
     import httpx
     key = os.getenv("BUTTONDOWN_API_KEY", "").strip()
-    base = (os.getenv("BUTTONDOWN_API_BASE") or "https://api.buttondown.email/v1").rstrip("/")
+    base = (os.getenv("BUTTONDOWN_API_BASE") or "https://api.buttondown.com/v1").rstrip("/")
     try:
         r = httpx.post(
             f"{base}/emails",
@@ -65,7 +65,9 @@ def _send_buttondown(subject: str, markdown_body: str) -> bool:
             json={"subject": subject, "body": markdown_body, "status": "about_to_send"},
             timeout=30,
         )
-        r.raise_for_status()
+        if r.status_code >= 400:
+            logger.error("Buttondown %s: %s", r.status_code, r.text[:400])
+            return False
         logger.info("Buttondown 已发送 → 订阅者: %s", subject)
         return True
     except Exception as e:  # noqa: BLE001
