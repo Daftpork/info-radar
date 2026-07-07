@@ -1,0 +1,212 @@
+[
+  {
+    "date": "2026-07-08",
+    "items": [
+      {
+        "title": "shepherd-agents/shepherd",
+        "url": "https://github.com/shepherd-agents/shepherd",
+        "source": "github/trending",
+        "kind": "repo",
+        "metrics": {
+          "stars": 1043,
+          "forks": 65
+        }
+      },
+      {
+        "title": "lycorp-jp/sim-use",
+        "url": "https://github.com/lycorp-jp/sim-use",
+        "source": "github/trending",
+        "kind": "repo",
+        "metrics": {
+          "stars": 627,
+          "forks": 35
+        }
+      },
+      {
+        "title": "HUANGCHIHHUNGLeo/claude-real-video",
+        "url": "https://github.com/HUANGCHIHHUNGLeo/claude-real-video",
+        "source": "github/trending",
+        "kind": "repo",
+        "metrics": {
+          "stars": 1353,
+          "forks": 91
+        }
+      },
+      {
+        "title": "oomol-lab/open-connector",
+        "url": "https://github.com/oomol-lab/open-connector",
+        "source": "github/trending",
+        "kind": "repo",
+        "metrics": {
+          "stars": 810,
+          "forks": 37
+        }
+      },
+      {
+        "title": "LongCat-2.0",
+        "url": "https://www.producthunt.com/products/longcat",
+        "source": "producthunt",
+        "kind": "product",
+        "metrics": {}
+      },
+      {
+        "title": "Mozaik",
+        "url": "https://www.producthunt.com/products/mozaik-4",
+        "source": "producthunt",
+        "kind": "product",
+        "metrics": {}
+      },
+      {
+        "title": "CodeMote",
+        "url": "https://www.producthunt.com/products/codemote-remote-control-for-any-ai",
+        "source": "producthunt",
+        "kind": "product",
+        "metrics": {}
+      },
+      {
+        "title": "Nixmac",
+        "url": "https://www.producthunt.com/products/nixmac",
+        "source": "producthunt",
+        "kind": "product",
+        "metrics": {}
+      },
+      {
+        "title": "Astryx",
+        "url": "https://www.producthunt.com/products/meta",
+        "source": "producthunt",
+        "kind": "product",
+        "metrics": {}
+      },
+      {
+        "title": "baidu/Unlimited-OCR",
+        "url": "https://huggingface.co/baidu/Unlimited-OCR",
+        "source": "huggingface/model",
+        "kind": "repo",
+        "metrics": {
+          "likes": 1829,
+          "downloads": 1084945,
+          "trendingScore": 309
+        }
+      },
+      {
+        "title": "google/tabfm-1.0.0-pytorch",
+        "url": "https://huggingface.co/google/tabfm-1.0.0-pytorch",
+        "source": "huggingface/model",
+        "kind": "repo",
+        "metrics": {
+          "likes": 286,
+          "downloads": 9458,
+          "trendingScore": 265
+        }
+      },
+      {
+        "title": "Qwen/Qwen-AgentWorld-35B-A3B",
+        "url": "https://huggingface.co/Qwen/Qwen-AgentWorld-35B-A3B",
+        "source": "huggingface/model",
+        "kind": "repo",
+        "metrics": {
+          "likes": 560,
+          "downloads": 60736,
+          "trendingScore": 86
+        }
+      },
+      {
+        "title": "nvidia/LocateAnything-3B",
+        "url": "https://huggingface.co/nvidia/LocateAnything-3B",
+        "source": "huggingface/model",
+        "kind": "repo",
+        "metrics": {
+          "likes": 2657,
+          "downloads": 1424958,
+          "trendingScore": 126
+        }
+      },
+      {
+        "title": "OmniOpt: Taxonomy, Geometry, and Benchmarking of Modern Optimizers",
+        "url": "https://arxiv.org/abs/2607.04033",
+        "source": "arxiv/hf-daily",
+        "kind": "paper",
+        "metrics": {
+          "upvotes": 64
+        }
+      },
+      {
+        "title": "PixWorld: Unifying 3D Scene Generation and Reconstruction in Pixel Space",
+        "url": "https://arxiv.org/abs/2607.05373",
+        "source": "arxiv/hf-daily",
+        "kind": "paper",
+        "metrics": {
+          "upvotes": 46
+        }
+      },
+      {
+        "title": "EdgeBench: Unveiling Scaling Laws of Learning from Real-World Environments",
+        "url": "https://arxiv.org/abs/2607.05155",
+        "source": "arxiv/hf-daily",
+        "kind": "paper",
+        "metrics": {
+          "upvotes": 11
+        }
+      },
+      {
+        "title": "EVA-Client: A Unified Data Collection, Inference, and Deployment Framework for Embodied Policies on Real Robots",
+        "url": "https://arxiv.org/abs/2607.02646",
+        "source": "arxiv/hf-daily",
+        "kind": "paper",
+        "metrics": {
+          "upvotes": 23
+        }
+      },
+      {
+        "title": "modelcontextprotocol/ext-apps",
+        "url": "https://github.com/modelcontextprotocol/ext-apps",
+        "source": "github/design",
+        "kind": "repo",
+        "metrics": {
+          "stars": 2542,
+          "forks": 331
+        }
+      },
+      {
+        "title": "nexu-io/open-design",
+        "url": "https://github.com/nexu-io/open-design",
+        "source": "github/design",
+        "kind": "repo",
+        "metrics": {
+          "stars": 75974,
+          "forks": 8667
+        }
+      },
+      {
+        "title": "southleft/figma-console-mcp",
+        "url": "https://github.com/southleft/figma-console-mcp",
+        "source": "github/design",
+        "kind": "repo",
+        "metrics": {
+          "stars": 1941,
+          "forks": 212
+        }
+      },
+      {
+        "title": "ZSeven-W/openpencil",
+        "url": "https://github.com/ZSeven-W/openpencil",
+        "source": "github/design",
+        "kind": "repo",
+        "metrics": {
+          "stars": 3978,
+          "forks": 383
+        }
+      },
+      {
+        "title": "zanwei/design-dna",
+        "url": "https://github.com/zanwei/design-dna",
+        "source": "github/design",
+        "kind": "repo",
+        "metrics": {
+          "stars": 995,
+          "forks": 50
+        }
+      }
+    ]
+  }
+]
