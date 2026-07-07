@@ -48,5 +48,20 @@
         "completion": 4399
       }
     }
+  },
+  {
+    "date": "2026-07-07",
+    "tracker": "thinker",
+    "calls": 1,
+    "prompt": 6048,
+    "completion": 699,
+    "total": 6747,
+    "by_model": {
+      "gpt-5.5": {
+        "calls": 1,
+        "prompt": 6048,
+        "completion": 699
+      }
+    }
   }
 ]
