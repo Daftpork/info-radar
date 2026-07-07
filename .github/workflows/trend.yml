@@ -2,7 +2,7 @@ name: Trend Tracker
 
 on:
   schedule:
-    - cron: "15 2 * * 1,3,5"   # 每周一三五 10:15 北京（UTC 02:15）
+    - cron: "57 22 * * 0,2,4"   # 周一三五 ~06:57 北京（= UTC 周日/二/四 22:57）
   workflow_dispatch:
 
 concurrency:

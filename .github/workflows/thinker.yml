@@ -2,7 +2,7 @@ name: Thinker Tracker
 
 on:
   schedule:
-    - cron: "50 23 * * *"   # 每天 07:50 北京（UTC 23:50）
+    - cron: "57 22 * * *"   # 每天 ~06:57 北京（UTC 前一天 22:57，避开整点拥堵）
   workflow_dispatch:
 
 concurrency:

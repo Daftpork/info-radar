@@ -2,7 +2,7 @@ name: DeepDive
 
 on:
   schedule:
-    - cron: "5 1 * * 0"   # 每周日 09:05 北京（UTC 01:05）
+    - cron: "57 22 * * 6"   # 周日 ~06:57 北京（= UTC 周六 22:57）
   workflow_dispatch:
 
 concurrency:
