@@ -98,5 +98,25 @@
         "completion": 572
       }
     }
+  },
+  {
+    "date": "2026-07-10",
+    "tracker": "trend",
+    "calls": 6,
+    "prompt": 13922,
+    "completion": 2529,
+    "total": 16451,
+    "by_model": {
+      "gpt-5.5": {
+        "calls": 5,
+        "prompt": 13276,
+        "completion": 2484
+      },
+      "gpt-5.4-mini": {
+        "calls": 1,
+        "prompt": 646,
+        "completion": 45
+      }
+    }
   }
 ]

@@ -208,5 +208,162 @@
         }
       }
     ]
+  },
+  {
+    "date": "2026-07-10",
+    "items": [
+      {
+        "title": "simonlin1212/Vibe-Research",
+        "url": "https://github.com/simonlin1212/Vibe-Research",
+        "source": "github/trending",
+        "kind": "repo",
+        "metrics": {
+          "stars": 586,
+          "forks": 117
+        }
+      },
+      {
+        "title": "Aura: Agents + Git + Intent Open Source",
+        "url": "https://www.producthunt.com/products/aura-28",
+        "source": "producthunt",
+        "kind": "product",
+        "metrics": {}
+      },
+      {
+        "title": "NanoKVM-Go",
+        "url": "https://www.producthunt.com/products/nanokvm-go",
+        "source": "producthunt",
+        "kind": "product",
+        "metrics": {}
+      },
+      {
+        "title": "On-Device Field Extraction by Veryfi",
+        "url": "https://www.producthunt.com/products/veryfi",
+        "source": "producthunt",
+        "kind": "product",
+        "metrics": {}
+      },
+      {
+        "title": "Coasty",
+        "url": "https://www.producthunt.com/products/coasty",
+        "source": "producthunt",
+        "kind": "product",
+        "metrics": {}
+      },
+      {
+        "title": "agents-cli",
+        "url": "https://www.producthunt.com/products/agents-cli",
+        "source": "producthunt",
+        "kind": "product",
+        "metrics": {}
+      },
+      {
+        "title": "unsloth/Qwen3.6-27B-MTP-GGUF",
+        "url": "https://huggingface.co/unsloth/Qwen3.6-27B-MTP-GGUF",
+        "source": "huggingface/model",
+        "kind": "repo",
+        "metrics": {
+          "likes": 1024,
+          "downloads": 2894918,
+          "trendingScore": 84
+        }
+      },
+      {
+        "title": "unsloth/DeepSeek-V4-Flash-GGUF",
+        "url": "https://huggingface.co/unsloth/DeepSeek-V4-Flash-GGUF",
+        "source": "huggingface/model",
+        "kind": "repo",
+        "metrics": {
+          "likes": 111,
+          "downloads": 22953,
+          "trendingScore": 108
+        }
+      },
+      {
+        "title": "mrfakename/Z-Image-Turbo",
+        "url": "https://huggingface.co/spaces/mrfakename/Z-Image-Turbo",
+        "source": "huggingface/space",
+        "kind": "repo",
+        "metrics": {
+          "likes": 3527
+        }
+      },
+      {
+        "title": "conradlocke/krea2-identity-edit",
+        "url": "https://huggingface.co/conradlocke/krea2-identity-edit",
+        "source": "huggingface/model",
+        "kind": "repo",
+        "metrics": {
+          "likes": 131,
+          "trendingScore": 130
+        }
+      },
+      {
+        "title": "Accurate, Interdisciplinary and Transparent Structure-property Understanding with Deep Native Structural Reasoning",
+        "url": "https://arxiv.org/abs/2607.07708",
+        "source": "arxiv/hf-daily",
+        "kind": "paper",
+        "metrics": {
+          "upvotes": 71
+        }
+      },
+      {
+        "title": "Dual Latent Memory in Vision-Language-Action Models for Robotic Manipulation",
+        "url": "https://arxiv.org/abs/2607.07608",
+        "source": "arxiv/hf-daily",
+        "kind": "paper",
+        "metrics": {
+          "upvotes": 44
+        }
+      },
+      {
+        "title": "Scaling Mixture-of-Experts Video Pretraining for Embodied Intelligence",
+        "url": "https://arxiv.org/abs/2607.07675",
+        "source": "arxiv/hf-daily",
+        "kind": "paper",
+        "metrics": {
+          "upvotes": 39
+        }
+      },
+      {
+        "title": "AgentLens: Production-Assessed Trajectory Reviews for Coding Agent Evaluation",
+        "url": "https://arxiv.org/abs/2607.06624",
+        "source": "arxiv/hf-daily",
+        "kind": "paper",
+        "metrics": {
+          "upvotes": 4
+        }
+      },
+      {
+        "title": "dannote/figma-use",
+        "url": "https://github.com/dannote/figma-use",
+        "source": "github/design",
+        "kind": "repo",
+        "metrics": {
+          "stars": 578,
+          "forks": 42
+        }
+      },
+      {
+        "title": "plugin87/ux-ui-agent-skills",
+        "url": "https://github.com/plugin87/ux-ui-agent-skills",
+        "source": "github/design",
+        "kind": "repo",
+        "metrics": {
+          "stars": 447,
+          "forks": 36
+        }
+      },
+      {
+        "title": "nexu-io/motion-anything",
+        "url": "https://github.com/nexu-io/motion-anything",
+        "source": "github/design",
+        "kind": "repo",
+        "metrics": {
+          "stars": 343,
+          "forks": 31
+        }
+      }
+    ]
   }
 ]
