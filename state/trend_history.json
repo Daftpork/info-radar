@@ -365,5 +365,144 @@
         }
       }
     ]
+  },
+  {
+    "date": "2026-07-13",
+    "items": [
+      {
+        "title": "JustVugg/colibri",
+        "url": "https://github.com/JustVugg/colibri",
+        "source": "github/trending",
+        "kind": "repo",
+        "metrics": {
+          "stars": 6339,
+          "forks": 538
+        }
+      },
+      {
+        "title": "ai4s-research/open-science",
+        "url": "https://github.com/ai4s-research/open-science",
+        "source": "github/trending",
+        "kind": "repo",
+        "metrics": {
+          "stars": 664,
+          "forks": 78
+        }
+      },
+      {
+        "title": "nagisanzenin/engram",
+        "url": "https://github.com/nagisanzenin/engram",
+        "source": "github/trending",
+        "kind": "repo",
+        "metrics": {
+          "stars": 645,
+          "forks": 68
+        }
+      },
+      {
+        "title": "vinhhien112/Three.js-Object-Sculptor-Codex-Plugin",
+        "url": "https://github.com/vinhhien112/Three.js-Object-Sculptor-Codex-Plugin",
+        "source": "github/trending",
+        "kind": "repo",
+        "metrics": {
+          "stars": 573,
+          "forks": 73
+        }
+      },
+      {
+        "title": "Basedash SCIM",
+        "url": "https://www.producthunt.com/products/basedash",
+        "source": "producthunt",
+        "kind": "product",
+        "metrics": {}
+      },
+      {
+        "title": "RepStandard",
+        "url": "https://www.producthunt.com/products/repstandard",
+        "source": "producthunt",
+        "kind": "product",
+        "metrics": {}
+      },
+      {
+        "title": "OpenMOSS-Team/MOSS-Transcribe-Diarize",
+        "url": "https://huggingface.co/OpenMOSS-Team/MOSS-Transcribe-Diarize",
+        "source": "huggingface/model",
+        "kind": "repo",
+        "metrics": {
+          "likes": 128,
+          "downloads": 14491,
+          "trendingScore": 126
+        }
+      },
+      {
+        "title": "CohereLabs/cohere-transcribe-arabic-07-2026",
+        "url": "https://huggingface.co/CohereLabs/cohere-transcribe-arabic-07-2026",
+        "source": "huggingface/model",
+        "kind": "repo",
+        "metrics": {
+          "likes": 95,
+          "downloads": 9860,
+          "trendingScore": 87
+        }
+      },
+      {
+        "title": "SupraLabs/Supra-Router-51M",
+        "url": "https://huggingface.co/SupraLabs/Supra-Router-51M",
+        "source": "huggingface/model",
+        "kind": "repo",
+        "metrics": {
+          "likes": 106,
+          "downloads": 1434,
+          "trendingScore": 100
+        }
+      },
+      {
+        "title": "nvidia/NVIDIA-Nemotron-Labs-3-Puzzle-75B-A9B-NVFP4",
+        "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-Labs-3-Puzzle-75B-A9B-NVFP4",
+        "source": "huggingface/model",
+        "kind": "repo",
+        "metrics": {
+          "likes": 112,
+          "downloads": 34796,
+          "trendingScore": 109
+        }
+      },
+      {
+        "title": "Vidu S1: A Real-Time Interactive Video Generation Model",
+        "url": "https://arxiv.org/abs/2607.03118",
+        "source": "arxiv/hf-daily",
+        "kind": "paper",
+        "metrics": {
+          "upvotes": 122
+        }
+      },
+      {
+        "title": "Video-Oasis: Rethinking Evaluation of Video Understanding",
+        "url": "https://arxiv.org/abs/2603.29616",
+        "source": "arxiv/hf-daily",
+        "kind": "paper",
+        "metrics": {
+          "upvotes": 52
+        }
+      },
+      {
+        "title": "Linear Attention Architectures: Mechanisms, Trade-offs, and Cross-Layer Routing",
+        "url": "https://arxiv.org/abs/2607.07953",
+        "source": "arxiv/hf-daily",
+        "kind": "paper",
+        "metrics": {
+          "upvotes": 11
+        }
+      },
+      {
+        "title": "UniClawBench: A Universal Benchmark for Proactive Agents on Real-World Tasks",
+        "url": "https://arxiv.org/abs/2607.08768",
+        "source": "arxiv/hf-daily",
+        "kind": "paper",
+        "metrics": {
+          "upvotes": 27
+        }
+      }
+    ]
   }
 ]
