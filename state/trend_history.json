@@ -504,5 +504,175 @@
         }
       }
     ]
+  },
+  {
+    "date": "2026-07-15",
+    "items": [
+      {
+        "title": "SmileLikeYe/agent-chief",
+        "url": "https://github.com/SmileLikeYe/agent-chief",
+        "source": "github/trending",
+        "kind": "repo",
+        "metrics": {
+          "stars": 619,
+          "forks": 3
+        }
+      },
+      {
+        "title": "Sahir619/fable-method",
+        "url": "https://github.com/Sahir619/fable-method",
+        "source": "github/trending",
+        "kind": "repo",
+        "metrics": {
+          "stars": 671,
+          "forks": 97
+        }
+      },
+      {
+        "title": "William-Lu-stack/Flawless",
+        "url": "https://github.com/William-Lu-stack/Flawless",
+        "source": "github/trending",
+        "kind": "repo",
+        "metrics": {
+          "stars": 616,
+          "forks": 95
+        }
+      },
+      {
+        "title": "AlephAITech/WorkBuddyGuide",
+        "url": "https://github.com/AlephAITech/WorkBuddyGuide",
+        "source": "github/trending",
+        "kind": "repo",
+        "metrics": {
+          "stars": 681,
+          "forks": 94
+        }
+      },
+      {
+        "title": "Playground",
+        "url": "https://www.producthunt.com/products/nyx-4",
+        "source": "producthunt",
+        "kind": "product",
+        "metrics": {}
+      },
+      {
+        "title": "TailMux",
+        "url": "https://www.producthunt.com/products/tailmux",
+        "source": "producthunt",
+        "kind": "product",
+        "metrics": {}
+      },
+      {
+        "title": "Mojave Paint",
+        "url": "https://www.producthunt.com/products/mojave-paint",
+        "source": "producthunt",
+        "kind": "product",
+        "metrics": {}
+      },
+      {
+        "title": "Agentcard for companies",
+        "url": "https://www.producthunt.com/products/agent-card",
+        "source": "producthunt",
+        "kind": "product",
+        "metrics": {}
+      },
+      {
+        "title": "Branda",
+        "url": "https://www.producthunt.com/products/branda-open-source-on-brand-ad-maker",
+        "source": "producthunt",
+        "kind": "product",
+        "metrics": {}
+      },
+      {
+        "title": "unsloth/Qwen3.6-27B-NVFP4",
+        "url": "https://huggingface.co/unsloth/Qwen3.6-27B-NVFP4",
+        "source": "huggingface/model",
+        "kind": "repo",
+        "metrics": {
+          "likes": 204,
+          "downloads": 1599150,
+          "trendingScore": 98
+        }
+      },
+      {
+        "title": "jlnsrk/GLM-5.2-colibri-int4",
+        "url": "https://huggingface.co/jlnsrk/GLM-5.2-colibri-int4",
+        "source": "huggingface/model",
+        "kind": "repo",
+        "metrics": {
+          "likes": 102,
+          "downloads": 2188,
+          "trendingScore": 94
+        }
+      },
+      {
+        "title": "prism-ml/Ternary-Bonsai-27B-gguf",
+        "url": "https://huggingface.co/prism-ml/Ternary-Bonsai-27B-gguf",
+        "source": "huggingface/model",
+        "kind": "repo",
+        "metrics": {
+          "likes": 115,
+          "downloads": 23,
+          "trendingScore": 112
+        }
+      },
+      {
+        "title": "empero-ai/Qwythos-9B-v2-GGUF",
+        "url": "https://huggingface.co/empero-ai/Qwythos-9B-v2-GGUF",
+        "source": "huggingface/model",
+        "kind": "repo",
+        "metrics": {
+          "likes": 128,
+          "downloads": 70260,
+          "trendingScore": 123
+        }
+      },
+      {
+        "title": "Weak-to-Strong Generalization via Direct On-Policy Distillation",
+        "url": "https://arxiv.org/abs/2607.05394",
+        "source": "arxiv/hf-daily",
+        "kind": "paper",
+        "metrics": {
+          "upvotes": 92
+        }
+      },
+      {
+        "title": "Long-Horizon-Terminal-Bench: Testing the Limits of Agents on Long-Horizon Terminal Tasks with Dense Reward-Based Grading",
+        "url": "https://arxiv.org/abs/2607.08964",
+        "source": "arxiv/hf-daily",
+        "kind": "paper",
+        "metrics": {
+          "upvotes": 61
+        }
+      },
+      {
+        "title": "ABot-AgentOS: A General Robotic Agent OS with Lifelong Multi-modal Memory",
+        "url": "https://arxiv.org/abs/2607.10350",
+        "source": "arxiv/hf-daily",
+        "kind": "paper",
+        "metrics": {
+          "upvotes": 68
+        }
+      },
+      {
+        "title": "ABot-N1: Toward a General Visual Language Navigation Foundation Model",
+        "url": "https://arxiv.org/abs/2607.10383",
+        "source": "arxiv/hf-daily",
+        "kind": "paper",
+        "metrics": {
+          "upvotes": 80
+        }
+      },
+      {
+        "title": "Devin-AXIS/iPolloWork",
+        "url": "https://github.com/Devin-AXIS/iPolloWork",
+        "source": "github/design",
+        "kind": "repo",
+        "metrics": {
+          "stars": 1219,
+          "forks": 155
+        }
+      }
+    ]
   }
 ]
