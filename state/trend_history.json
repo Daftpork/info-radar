@@ -674,5 +674,125 @@
         }
       }
     ]
+  },
+  {
+    "date": "2026-07-17",
+    "items": [
+      {
+        "title": "Zro",
+        "url": "https://www.producthunt.com/products/zro",
+        "source": "producthunt",
+        "kind": "product",
+        "metrics": {}
+      },
+      {
+        "title": "In Parallel MCP",
+        "url": "https://www.producthunt.com/products/in-parallel",
+        "source": "producthunt",
+        "kind": "product",
+        "metrics": {}
+      },
+      {
+        "title": "Tiptap AI Toolkit",
+        "url": "https://www.producthunt.com/products/tiptap",
+        "source": "producthunt",
+        "kind": "product",
+        "metrics": {}
+      },
+      {
+        "title": "Nitrosend",
+        "url": "https://www.producthunt.com/products/nitrosend",
+        "source": "producthunt",
+        "kind": "product",
+        "metrics": {}
+      },
+      {
+        "title": "ccshare",
+        "url": "https://www.producthunt.com/products/ccshare",
+        "source": "producthunt",
+        "kind": "product",
+        "metrics": {}
+      },
+      {
+        "title": "thinkingmachines/Inkling",
+        "url": "https://huggingface.co/thinkingmachines/Inkling",
+        "source": "huggingface/model",
+        "kind": "repo",
+        "metrics": {
+          "likes": 798,
+          "downloads": 4,
+          "trendingScore": 787
+        }
+      },
+      {
+        "title": "ATH-MaaS/OvisOCR2",
+        "url": "https://huggingface.co/ATH-MaaS/OvisOCR2",
+        "source": "huggingface/model",
+        "kind": "repo",
+        "metrics": {
+          "likes": 136,
+          "downloads": 3678,
+          "trendingScore": 134
+        }
+      },
+      {
+        "title": "Cactus-Compute/needle",
+        "url": "https://huggingface.co/Cactus-Compute/needle",
+        "source": "huggingface/model",
+        "kind": "repo",
+        "metrics": {
+          "likes": 248,
+          "downloads": 733,
+          "trendingScore": 97
+        }
+      },
+      {
+        "title": "prism-ml/Bonsai-27B-gguf",
+        "url": "https://huggingface.co/prism-ml/Bonsai-27B-gguf",
+        "source": "huggingface/model",
+        "kind": "repo",
+        "metrics": {
+          "likes": 336,
+          "downloads": 559267,
+          "trendingScore": 331
+        }
+      },
+      {
+        "title": "Harness Handbook: Making Evolving Agent Harnesses Readable,Navigable, and Editable",
+        "url": "https://arxiv.org/abs/2607.13285",
+        "source": "arxiv/hf-daily",
+        "kind": "paper",
+        "metrics": {
+          "upvotes": 163
+        }
+      },
+      {
+        "title": "Function-Aware Fill-in-the-Middle as Mid-Training for Coding Agent Foundation Models",
+        "url": "https://arxiv.org/abs/2607.12463",
+        "source": "arxiv/hf-daily",
+        "kind": "paper",
+        "metrics": {
+          "upvotes": 90
+        }
+      },
+      {
+        "title": "Ring-Zero: Scaling Zero RL to a Trillion Parameters for Emergent Reasoning",
+        "url": "https://arxiv.org/abs/2607.12395",
+        "source": "arxiv/hf-daily",
+        "kind": "paper",
+        "metrics": {
+          "upvotes": 79
+        }
+      },
+      {
+        "title": "OvisOCR2 Technical Report",
+        "url": "https://arxiv.org/abs/2607.13639",
+        "source": "arxiv/hf-daily",
+        "kind": "paper",
+        "metrics": {
+          "upvotes": 42
+        }
+      }
+    ]
   }
 ]
